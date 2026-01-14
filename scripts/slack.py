@@ -23,7 +23,7 @@ def post_to_slack(additional_data):
     return response_json
 
 def get_conversation_history():
-    """Get messages sent today in the channel."""
+    """Get messages sent today in the channel. Checks in UTC time"""
     t = date.today()
     dt = datetime(t.year, t.month, t.day)
 
