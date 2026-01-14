@@ -88,26 +88,26 @@ def posts_all_courses():
     # if has_manually_posted():
     #     return
 
-    # parent_content = generate_slack_parent_content()
-    # thread_content = generate_slack_thread_content()
+    parent_content = generate_slack_parent_content()
+    thread_content = generate_slack_thread_content()
 
     post_to_slack({
         "markdown_text": config.intro_messsage
     })
 
-    # for course in config.courses:
-    #     parent = post_to_slack({
-    #         "text": parent_content[course]
-    #     })
+    for course in config.courses:
+        parent = post_to_slack({
+            "text": parent_content[course]
+        })
 
-    #     thread_ts = parent['ts']
+        thread_ts = parent['ts']
 
-    #     post_to_slack({
-    #         "text": thread_content[course],
-    #         "thread_ts": thread_ts
-    #     })
+        post_to_slack({
+            "text": thread_content[course],
+            "thread_ts": thread_ts
+        })
 
-    #     time.sleep(2)
+        time.sleep(2)
 
 if __name__ == '__main__':
     posts_all_courses()
