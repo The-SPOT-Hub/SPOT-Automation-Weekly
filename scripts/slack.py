@@ -92,7 +92,7 @@ def posts_all_courses():
     # thread_content = generate_slack_thread_content()
 
     post_to_slack({
-        "text": config.intro_messsage
+        "markdown_text": config.intro_messsage
     })
 
     # for course in config.courses:
