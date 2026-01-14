@@ -40,17 +40,17 @@ courses = [
 bulk_desc = "If interested in attending a session, please provide your availability and let us know by commenting here so that a spot lead can take this session. If a lead isn't available by mid-week, it is advised that everyone pair up. Students must follow the LS code of conduct.\n\n"
 last_desc = "Congrats! You made it! Since this is the last course, we don't have any qualified leads to host sessions. But feel free to use this When2Meet to coordinate with other students in the course!\n\n"
 intro_messsage = """
-Reminder: WEEKLY STUDY SESSION SIGN-UPS\n
+Reminder: **WEEKLY STUDY SESSION SIGN-UPS**\n
 Welcome to the SPOT's weekly, peer-led Study Sessions!\n
 Respond below to your course's thread to let Session Leads know that there is interest in a course this week.\n
-:ls:Sign Up For a Session:ls:\n
+:ls:**Sign Up For a Session**:ls:\n
 1. Add your availability in the linked When2Meet, located in the comments of that course's thread. :rocket:\n
 2. Comment on the course's post to let the Session Lead know you're attending and what topics you want to cover this week, if any.\n
 3. If a lead is available, they will comment on the session's post and schedule a time and place to hold the session.\n
 (NOTE: Leads aren't always available to volunteer for a course. If no Lead makes a post by midweek, we encourage you to meet up.)\n
 Feel Free to Reach out to Current Mods if You Have Questions.\n
 List of Current Mods Up Top, In Topics Board\n
-:ls:Check out Launch School's Gather:ls:\n
+:ls:**Check out Launch School's Gather**:ls:\n
 :key:Password: l@unch!!1
 """
 
