@@ -4,35 +4,29 @@ from dotenv import load_dotenv
 load_dotenv() # Load .env file
 
 # Courses
-# courses = [
-#     'RB101',
-#     'RB110',
-#     'RB120',
-#     'RB130',
-#     'JS101',
-#     'JS110',
-#     'JS120',
-#     'JS130',
-#     'PY101',
-#     'PY110',
-#     'PY120',
-#     'PY130',
-#     'LS170',
-#     'RB175',
-#     'JS175',
-#     'PY175',
-#     'LS180',
-#     'JS210',
-#     'LS215',
-#     'JS225',
-#     'JS230',
-#     'TS240',
-#     'LS250'
-# ]
-
 courses = [
     'RB101',
     'RB110',
+    'RB120',
+    'RB130',
+    'JS101',
+    'JS110',
+    'JS120',
+    'JS130',
+    'PY101',
+    'PY110',
+    'PY120',
+    'PY130',
+    'LS170',
+    'RB175',
+    'JS175',
+    'PY175',
+    'LS180',
+    'JS210',
+    'LS215',
+    'JS225',
+    'JS230',
+    'TS240',
     'LS250'
 ]
 
@@ -42,14 +36,14 @@ last_desc = "Congrats! You made it! Since this is the last course, we don't have
 intro_messsage = """
 Reminder: **WEEKLY STUDY SESSION SIGN-UPS**
 Welcome to the SPOT's weekly, peer-led Study Sessions!
-Respond below to your course's thread to let Session Leads know that there is interest in a course this week.
+Respond below to your course's thread to let Session Leads know that there is interest in a course this week.\n
 :ls:**Sign Up For a Session**:ls:
 1. Add your availability in the linked When2Meet, located in the comments of that course's thread. :rocket:
 2. Comment on the course's post to let the Session Lead know you're attending and what topics you want to cover this week, if any.
 3. If a lead is available, they will comment on the session's post and schedule a time and place to hold the session.
 (NOTE: Leads aren't always available to volunteer for a course. If no Lead makes a post by midweek, we encourage you to meet up.)
 Feel Free to Reach out to Current Mods if You Have Questions.
-List of Current Mods Up Top, In Topics Board
+List of Current Mods Up Top, In Topics Board\n
 :ls:**Check out Launch School's Gather**:ls:
 :key:Password: l@unch!!1
 """
