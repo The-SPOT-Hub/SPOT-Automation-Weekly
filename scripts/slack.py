@@ -85,11 +85,15 @@ def has_manually_posted():
 
 def posts_all_courses():
     """Post all Slack content if there has not been a manual or scheduled posting yet today."""
-    if has_manually_posted():
-        return
+    # if has_manually_posted():
+    #     return
 
     parent_content = generate_slack_parent_content()
     thread_content = generate_slack_thread_content()
+
+    post_to_slack({
+        "text": config.intro_messsage
+    })
 
     for course in config.courses:
         parent = post_to_slack({
