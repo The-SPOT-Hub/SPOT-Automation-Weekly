@@ -1,6 +1,6 @@
 *Note: The following was written in part by Claude.*
 
-# SPOT Weekly Automation - Maintainer's Guide
+# SPOT Weekly Automation
 
 ## What This Is
 
