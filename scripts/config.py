@@ -4,29 +4,35 @@ from dotenv import load_dotenv
 load_dotenv() # Load .env file
 
 # Courses
+# courses = [
+#     'RB101',
+#     'RB110',
+#     'RB120',
+#     'RB130',
+#     'JS101',
+#     'JS110',
+#     'JS120',
+#     'JS130',
+#     'PY101',
+#     'PY110',
+#     'PY120',
+#     'PY130',
+#     'LS170',
+#     'RB175',
+#     'JS175',
+#     'PY175',
+#     'LS180',
+#     'JS210',
+#     'LS215',
+#     'JS225',
+#     'JS230',
+#     'TS240',
+#     'LS250'
+# ]
+
 courses = [
     'RB101',
     'RB110',
-    'RB120',
-    'RB130',
-    'JS101',
-    'JS110',
-    'JS120',
-    'JS130',
-    'PY101',
-    'PY110',
-    'PY120',
-    'PY130',
-    'LS170',
-    'RB175',
-    'JS175',
-    'PY175',
-    'LS180',
-    'JS210',
-    'LS215',
-    'JS225',
-    'JS230',
-    'TS240',
     'LS250'
 ]
 
