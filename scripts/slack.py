@@ -9,12 +9,16 @@ PREFIX_LEN = 2
 def post_to_slack(additional_data):
     """Trigger the actual post to Slack"""
     data = {
-        "token": config.slack_bot_token,
         "channel": config.channel_id
     }
     data.update(additional_data)
 
-    response = requests.post(config.post_message_endpoint, data=data)
+    headers = {
+        "Authorization": f"Bearer {config.slack_bot_token}",
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(config.post_message_endpoint, headers=headers, json=data)
     response_json = response.json()
 
     if not response_json.get('ok'):
@@ -68,9 +72,9 @@ def generate_slack_parent_content():
         icon = config.icons[prefix]
 
         if not assessment_number:
-            posts[course] = f"Reminder: {icon} {prefix} {number} Study Session: Sign Up Here!"
+            posts[course] = f"{icon} {prefix} {number} Study Session: Sign Up Here!"
         else:
-            posts[course] = f"Reminder: {icon} {prefix} {number}-{assessment_number} Study Session: Sign Up Here!"
+            posts[course] = f"{icon} {prefix} {number}-{assessment_number} Study Session: Sign Up Here!"
     
     return posts
 
@@ -92,7 +96,7 @@ def posts_all_courses():
     thread_content = generate_slack_thread_content()
 
     post_to_slack({
-        "markdown_text": config.intro_messsage
+        "blocks": config.intro_message
     })
 
     for course in config.courses:
