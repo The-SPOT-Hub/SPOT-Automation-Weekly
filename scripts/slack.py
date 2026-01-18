@@ -81,11 +81,7 @@ def generate_slack_parent_content():
 def has_manually_posted():
     """Check to see if the app has already posted today, likely due to someone triggering a manual posting"""
     messages_today = get_conversation_history()
-
-    for message in messages_today:
-        if message.get('app_id') == config.slack_app_id:
-            return True
-    return False
+    return any(message.get('app_id') == config.slack_app_id for message in messages_today)
 
 def posts_all_courses():
     """Post all Slack content if there has not been a manual or scheduled posting yet today."""
