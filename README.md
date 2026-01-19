@@ -1,5 +1,3 @@
-*Note: The following was written in part by Claude.*
-
 # SPOT Weekly Automation
 
 ## What This Is
