@@ -34,13 +34,19 @@ def post_form(title, dates_str):
 
     return w2m_id
 
-def format_and_log(links):
-    """Format thread content for Slack"""
-    *bulk_course_keys, last_course_key = config.courses
+def format_and_log(links, courses):
+    """Format thread content for Slack.
+    
+    Args:
+        links: Dictionary mapping course codes to their w2m links
+        courses: List of course codes to be posted
+    """
 
-    for title in bulk_course_keys:
-        links[title] = config.bulk_desc + links[title]
-    links[last_course_key] = config.last_desc + links[last_course_key]
+    for title in courses:
+        if title == config.last_course_key:
+            links[title] = config.last_desc + links[title]
+        else:
+            links[title] = config.bulk_desc + links[title]
 
     for key, value in links.items():
         print(key)
@@ -48,12 +54,17 @@ def format_and_log(links):
 
     return links
 
-def create_events(start_date):
-    """Create the w2m links"""
+def create_events(start_date, courses):
+    """Create the w2m links for specified courses.
+    
+    Args:
+        start_date: Start date string in YYYY-MM-DD format
+        courses: List of course codes to create events for
+    """
     links = {}
     dates_str = get_form_dates(start_date)
 
-    for title in config.courses:
+    for title in courses:
         w2m_id = post_form(title, dates_str)
         links[title] = f"{title}: https://www.when2meet.com/?{w2m_id}"
         time.sleep(2)
@@ -69,10 +80,15 @@ def get_next_sunday():
     next_sunday = today + timedelta(days=days_ahead)
     return next_sunday.strftime("%Y-%m-%d")
 
-def generate_slack_thread_content():
+def generate_slack_thread_content(courses=config.courses):
+    """Generate thread content for specified courses.
+    
+    Args:
+        courses: List of course codes to generate thread content for
+    """
     sunday = get_next_sunday()
-    links = create_events(sunday)
-    return format_and_log(links)
+    links = create_events(sunday, courses)
+    return format_and_log(links, courses)
     
 if __name__ == '__main__':
     generate_slack_thread_content()

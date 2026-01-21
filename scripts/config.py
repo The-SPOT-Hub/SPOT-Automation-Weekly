@@ -30,6 +30,8 @@ courses = [
     'LS250'
 ]
 
+last_course_key = 'LS250'
+
 # Post content
 bulk_desc = "If interested in attending a session, please provide your availability and let us know by commenting here so that a spot lead can take this session. If a lead isn't available by mid-week, it is advised that everyone pair up. Students must follow the LS code of conduct.\n\n"
 last_desc = "Congrats! You made it! Since this is the last course, we don't have any qualified leads to host sessions. But feel free to use this When2Meet to coordinate with other students in the course!\n\n"
