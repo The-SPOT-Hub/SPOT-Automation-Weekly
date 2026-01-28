@@ -73,11 +73,16 @@ def parse_course_from_message(message_text):
     # Message format: "{icon} {prefix} {number} Study Session: Sign Up Here!"
     # or "{icon} {prefix} {number}-{assessment} Study Session: Sign Up Here!"
     # Example: ":ruby: RB 101 Study Session: Sign Up Here!"
-    
-    # Pattern: emoji + space + 2-letter prefix + space + 3-digit number + optional "-" + digits + " Study Session"
+
+    # Special-case: PEDAC has no prefix/number split.
+    if re.search(r'\bPEDAC\b\s+Study Session', message_text):
+        return 'PEDAC' if 'PEDAC' in config.courses else None
+
+    # Standard pattern: emoji + space + 2-letter prefix + space + 3-digit number
+    # + optional "-" + digits + " Study Session"
     pattern = r':\w+:\s+([A-Z]{2})\s+(\d{3})(?:-\d+)?\s+Study Session'
     match = re.search(pattern, message_text)
-    
+
     if match:
         prefix = match.group(1)
         number = match.group(2)
@@ -85,7 +90,7 @@ def parse_course_from_message(message_text):
         # Verify it's a valid course code
         if course_code in config.courses:
             return course_code
-    
+
     return None
 
 def get_posted_status():
@@ -133,6 +138,11 @@ def generate_slack_parent_content(courses):
     posts = {}
 
     for course in courses:
+        if course == 'PEDAC':
+            icon = config.icons['PEDAC']
+            posts[course] = f"{icon} PEDAC Study Session: Sign Up Here!"
+            continue
+
         prefix = course[:PREFIX_LEN]
         number = course[PREFIX_LEN:]
 
@@ -143,7 +153,7 @@ def generate_slack_parent_content(courses):
             posts[course] = f"{icon} {prefix} {number} Study Session: Sign Up Here!"
         else:
             posts[course] = f"{icon} {prefix} {number}-{assessment_number} Study Session: Sign Up Here!"
-    
+
     return posts
 
 def posts_all_courses():

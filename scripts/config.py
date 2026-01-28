@@ -27,7 +27,8 @@ courses = [
     'JS225',
     'JS230',
     'TS240',
-    'LS250'
+    'LS250',
+    'PEDAC'
 ]
 
 last_course_key = 'LS250'
@@ -100,4 +101,5 @@ icons = {
     'PY': ':python:',
     'LS': ':ls:',
     'TS': ':typescript:',
+    'PEDAC': ':ls:',
 }
