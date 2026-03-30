@@ -61,3 +61,4 @@ spot-weekly-automation/
   - Created by: Karishma Tank
   - GitHub: SPOT account owns repo
   - Slack: LS workspace owns app
+
